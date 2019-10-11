@@ -41,4 +41,5 @@ The script [coverAllPeptide_greedy.py](scripts/coverAllPeptide_greedy.py) is the
 The top N genomes are then extracted and their genomes expanded to create the final database for spectral identification using the scripts [extract_representative_genomes_abundanceBased.py](scripts/extract_representative_genomes_abundanceBased.py) & [extract_representative_ribP_elonF_proteins.py](scripts/extract_representative_ribP_elonF_proteins.py)
 
 
-
+A final round of spectral search is performed using [MSGFPlus.jar](MSGF+/MSGFPlus.jar) over the final (expanded) database. 
+Unique identified peptides reported by the script [get_uniquePeptides.py](scripts/get_uniquePeptides.py)
