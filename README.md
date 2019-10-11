@@ -4,4 +4,4 @@ HAPiID (pronunciation: Happy ID). High Abundance Protein guided Metaproteomics i
 
 An overview of the pipeline is summarized in this figure:
 %![GitHub Logo](pipeline_schema.png =150x50)
-<img src="pipeline_schema.png"/>
+<img src="pipeline_schema.png" width="40%"/>
