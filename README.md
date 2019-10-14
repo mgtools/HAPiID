@@ -8,6 +8,8 @@ An overview of the pipeline is summarized in this figure:
   <img src="pipeline_schema.png" width="40%"/>
  </p>
 
+# Using HAPiID with the precompiled human gut database
+
 HAPiID is a reference based peptide identification pipeline. It uses 3,300 reference and metagenome binned genomes in order to profile and construct protein database for spectral search. To run this pipeline in one command we made the script [profileMPsample.sh](scripts/profileMPsample.sh).
 This script takes 6 command line arguments:
 ```
@@ -43,3 +45,8 @@ The top N genomes are then extracted and their genomes expanded to create the fi
 
 A final round of spectral search is performed using [MSGFPlus.jar](MSGF+/MSGFPlus.jar) over the final (expanded) database. 
 Unique identified peptides reported by the script [get_uniquePeptides.py](scripts/get_uniquePeptides.py)
+
+
+# Using HAPiID with new (user defined) database, starting from contigs
+
+We have included helper scripts that will allow the user to compile their own database. The user has to provide their own contings (and/or complete reference genomes), and the scripts will extract the necesarry information from these contigs in order to compile a protein database and run HAPiID.
