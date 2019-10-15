@@ -77,3 +77,8 @@ The final step is to de-duplicate these ribosomal and elongation factor genes us
 
 After compiling a custom protein database the users can search for peptides using the script [profileMPsample_custom.sh](scripts/profileMPsample_custom.sh), which follows similar steps as the script [profileMPsample.sh](scripts/profileMPsample.sh) defined in the previous section, by using the same input arguments.
 
+exampe to run script:
+```
+sh profileMPsample_custom.sh -i /mgf/file -o /dir/to/output/mzid/fies/ -d /ribosomal and elongation factor/fasta/sequence/file -t number of cores -e /output/directory/to/store/database/files/ -n top_N_genomes
+```
+
