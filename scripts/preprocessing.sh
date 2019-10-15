@@ -27,12 +27,11 @@
 #- python3  proteins2genomes.py all_proteomes/
 #The following steps after this will be just to modify the pipeline slightly to be able to incorporate a general version of the task using the information just processed in these steps
 START=$(date +%s)
-while getopts i:d:t:e: option
+while getopts i:t:e: option
 do
 case "${option}"
 in
     i) genomes_dir=${OPTARG};;
-    d) ribP_elonF_db_file=${OPTARG};;
     t) n_cores=${OPTARG};;
     e) contigs_extension=${OPTARG};;
 esac
