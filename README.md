@@ -55,4 +55,11 @@ Unique identified peptides reported by the script [get_uniquePeptides.py](script
 
 # Using HAPiID with new user defined database starting from contigs
 
-We have included helper scripts that will allow the user to compile their own database. The user has to provide their own contings (and/or complete reference genomes), and the scripts will extract the necesarry information from these contigs in order to compile a protein database and run HAPiID.
+We have included helper scripts that will allow the user to compile their own database. The user has to provide their own contings (and/or complete reference genomes) in fasta format, and the scripts will extract the necesarry information from these contigs in order to compile a protein database and run HAPiID. To run HAPiID over a custom database, the user has to precompile their own protein database first. We have created the script [preprocessing.sh](scripts/preprocessing.sh) that precompiles a protein database in one command. The script takes three command line arguments:
+```
+-i specifies the directory where the contigs (in fasta format) are located
+
+-t specifies the number of threads used by the script to run
+
+-e specifies the extension of the contigs (i.e. ".fasta", ".fa" etc.) it is important that the user renames all the contigs to have the same extension.
+```
