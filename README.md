@@ -12,6 +12,7 @@ An overview of the pipeline is summarized in this figure:
  We develop a new approach that uses two steps to optimize  the  use  of  reference  genomes  as  the  universal  reference  for  human  gut metaproteomics  identification.   The  first  step  is  to  use  only  the  high  abundance  pro-teins (HAPs) (i.e., ribosomal proteins and elongation factors) for metaproteomic MS/MSdatabase search and derive the taxonomic composition of the microbiome based on theidentification results.  The second step is to expand the search database by including all proteins from identified abundant species.  We call our approach HAPiID (HAPs guidedmetaproteomics IDentification). While HAPiID was originally designed for human gut metaproteomics, we expand out pipeline and include scripts allowing users to precompile their own custom made protein database and perform spectral search using that.
  
  * [Using HAPiID with the precompiled human gut bacteria database please follow the steps here:](#using-hapiid-with-the-precompiled-human-gut-database)
+* [Using HAPiID with new, user defined, database, starting from contigs please follow the steps here:](#using-hapiid-with-new,-user-defined,-database,-starting-from-contigs)
 
 # Using HAPiID with the precompiled human gut database
 
@@ -52,6 +53,6 @@ A final round of spectral search is performed using [MSGFPlus.jar](MSGF+/MSGFPlu
 Unique identified peptides reported by the script [get_uniquePeptides.py](scripts/get_uniquePeptides.py)
 
 
-# Using HAPiID with new (user defined) database, starting from contigs
+# Using HAPiID with new, user defined, database, starting from contigs
 
 We have included helper scripts that will allow the user to compile their own database. The user has to provide their own contings (and/or complete reference genomes), and the scripts will extract the necesarry information from these contigs in order to compile a protein database and run HAPiID.
