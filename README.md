@@ -79,10 +79,13 @@ This script takes 6 command line arguments:
 
 -e specifies the directory for the new database files to be stored (the ones with the expanded genomes)
 
--p specifies the top n genomes to be selected to construct a database in step to that will cover p % of<br/> 
-all the identified spectra during the profiling stage.
+-p specifies the top n genomes to be selected to construct a database in step to that will cover p % of 
+   all the identified spectra during the profiling stage.
 
--x the extension of the protein sequences used, (should be the same as the one specified as the -e parameter for the script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh), or should be set .fasta.FGS.faa if the script [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) were used for reference database construction).
+-x the extension of the protein sequences used, (should be the same as the one specified as the -e parameter for
+the script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh), or should be set 
+.fasta.FGS.faa if the script [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) were 
+used for reference database construction).
 ```
 
 
