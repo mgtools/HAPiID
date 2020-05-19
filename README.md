@@ -114,7 +114,8 @@ The top N genomes are then extracted and their genomes expanded to create the fi
 A final round of spectral search is performed using [MSGFPlus.jar](MSGF+/MSGFPlus.jar) over the final (expanded) database. 
 Unique identified peptides reported by the script [get_uniquePeptides.py](scripts/get_uniquePeptides.py)
 
-# Prerequisite Programs needed to run the pipeline:
+
+# Prerequisite Programs needed to run the pipeline
 
 * python3
 * required python packages:
