@@ -17,7 +17,7 @@ An overview of the pipeline is summarized in this figure:
 
 * [Using HAPiID with the precompiled human gut bacteria database please follow the steps here:](#using-hapiid-with-the-precompiled-human-gut-database)
 
-* [Prerequisite Programs needed to run the pipeline:](prerequisite-programs-needed-to-run-the-pipeline)
+* [Prerequisite Programs needed to run the pipeline:](#prerequisite-programs-needed-to-run-the-pipeline)
 
 # Compiling protein database from set of genomes
 
