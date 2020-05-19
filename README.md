@@ -120,13 +120,10 @@ Unique identified peptides reported by the script [get_uniquePeptides.py](script
 * python3
 * required python packages:
     * biopython
-    * ete3
+    * numpy
+    * pandas
 * Frag Gene Scan (FGS)
 * HMMER3
-* Bowtie2
-* MUSCLE
-* FastTree
-* PHYLIP tools
 
     
 Click [here](#setting-up-required-programs-and-packages) for details about installing/setting up prerequisites.
@@ -144,7 +141,10 @@ and then follow the installation instructions.
 ##### Installing biopython and ete3 python packages
 ```
 conda install -c anaconda biopytho
-conda install -c etetoolkit ete3 
+
+conda install -c anaconda numpy
+
+conda install pandas
 ```
 
 
@@ -170,34 +170,4 @@ cd hmmer-3.2.1/
  make install
  add the path to hmmer to the $PATH variable in ~/.bashrc file
  export PATH="/path/to/hmmer/hmmer-3.2.1/bin:$PATH
-```
-#### BOWTIE2
-BOWTIE2 is used to map the reads back to the contigs, and create SAM files. BOWTIE2 could be obtained from:
-```
-wget https://sourceforge.net/projects/bowtie-bio/files/latest/download/bowtie2-2.3.4.3-source.zip
-unzip bowtie2-2.3.4.3-source.zip
-add assign the path to bowtie2 to the variable $BT2_home, in ~/.bashrc file.
-export BT2_HOME="/path/to/bowtie2/bowtie2-2.3.4.3"
-make
-```
-If make gives errors you might have to switch back to the default gcc compiler, rather than homebrew's one, and then make.
-
-#### MUSCLE
-MUSCLE is used to peform multiple sequence allignment between the sequences belonging to the same maker gene classes. MUSCLE could be obtained from:
-```
-wget https://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
-tar -zxvf muscle3.8.31_i86linux64.tar.gz
-make the binary executable
-chmod +x /path/to/muscle/muscle3.8.31/muscle3.8.31_i86linux64
-add the path to MUSCLE to the $PATH variable in ~/.bashrc file
-export PATH="/path/to/cd-hit/muscle3.8.31:$PATH"
-```
-
-#### FastTree
-FastTree is used to build a phylogenetic tree from the multiple sequence allignments obtained by MUSCLE. FastTree could be obtained from:
-```
-wget http://www.microbesonline.org/fasttree/FastTree
-chmod +x /path/to/FastTree/FastTree
-add the path to FastTree to the $PATH variable in ~/.bashrc file
-export PATH="/path/to/FastTree:$PATH"
 ```
