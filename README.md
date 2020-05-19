@@ -13,7 +13,7 @@ An overview of the pipeline is summarized in this figure:
 
 * [Compiling a reference database from a set of genomes:](#compiling-protein-database-from-set-of-genomes)
 
-* [Compiling a reference database from a set of proteomes:](#compiling-protein-database-from-set-of-proteoms)
+* [Compiling a reference database from a set of proteomes:](#compiling-protein-database-from-set-of-proteomes)
 
 * [Using HAPiID with the precompiled human gut bacteria database please follow the steps here:](#using-hapiid-with-the-precompiled-human-gut-database)
 * [Using HAPiID with user defined database starting from contigs please follow the steps here:](#using-hapiid-with-user-defined-database-starting-from-contigs)
