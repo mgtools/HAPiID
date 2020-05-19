@@ -71,9 +71,11 @@ This script takes 6 command line arguments:
 ```
 -i specifies the mgf formatted spectra file as an input to the script
 
--o specifies the output directory for the script to store the mzid file after processing the mgf files using MSGF+
+-o specifies the output directory for the script to store the mzid file after processing the 
+mgf files using MSGF+
 
--d specifies the sequence file (in fasta format) for the initial profiling database (i.e. the ribosomal and elongation factors)
+-d specifies the sequence file (in fasta format) for the initial profiling database 
+(i.e. the ribosomal and elongation factors)
 
 -t specifies the number of threads used by the script to run
 
@@ -82,10 +84,9 @@ This script takes 6 command line arguments:
 -p specifies the top n genomes to be selected to construct a database in step to that will cover p % of 
    all the identified spectra during the profiling stage.
 
--x the extension of the protein sequences used, (should be the same as the one specified as the -e parameter for
-the script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh), or should be set 
-.fasta.FGS.faa if the script [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) were 
-used for reference database construction).
+-x the extension of the protein sequences used, (should be the same as the one specified as 
+the -e parameter for the script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh),
+or should be set .fasta.FGS.faa if the script [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) were used for reference database construction).
 ```
 
 
