@@ -85,8 +85,8 @@ mgf files using MSGF+
    all the identified spectra during the profiling stage.
 
 -x the extension of the protein sequences used, (should be the same as the one specified as 
-the -e parameter for the script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh),
-or should be set .fasta.FGS.faa if the script [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) were used for reference database construction).
+the -e parameter for the script "makeProfilingDatabase_proteomes.sh",
+or should be set .fasta.FGS.faa if the script "makeProfilingDatabase_genomes.sh"] were used for reference database construction).
 ```
 
 
