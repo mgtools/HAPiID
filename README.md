@@ -11,12 +11,58 @@ An overview of the pipeline is summarized in this figure:
  
  We develop a new approach that uses two steps to optimize  the  use  of  reference  genomes  as  the  universal  reference  for  human  gut metaproteomics  identification.   The  first  step  is  to  use  only  the  high  abundance  pro-teins (HAPs) (i.e., ribosomal proteins and elongation factors) for metaproteomic MS/MS database search and derive the taxonomic composition of the microbiome based on theidentification results.  The second step is to expand the search database by including all proteins from identified abundant species.  We call our approach HAPiID (HAPs guided metaproteomics IDentification). While HAPiID was originally designed for human gut metaproteomics, we expand out pipeline and include scripts allowing users to precompile their own custom made protein database and perform spectral search using that.
 
- * [Compiling a reference database from a set of proteomes:](#compiling-protein-database-from-set-of-proteomes)
+* [Compiling a reference database from a set of genomes:](#compiling-protein-database-from-set-of-genomes)
 
- * [Using HAPiID with the precompiled human gut bacteria database please follow the steps here:](#using-hapiid-with-the-precompiled-human-gut-database)
+* [Compiling a reference database from a set of proteomes:](#compiling-protein-database-from-set-of-proteoms)
+
+* [Using HAPiID with the precompiled human gut bacteria database please follow the steps here:](#using-hapiid-with-the-precompiled-human-gut-database)
 * [Using HAPiID with user defined database starting from contigs please follow the steps here:](#using-hapiid-with-user-defined-database-starting-from-contigs)
 
-# compiling protein database from set of proteomes
+# Compiling protein database from set of genomes
+
+We have included helper scripts that will allow the user to compile their own database starting from a list of genome sequences. The user has to provide their own contigs in fasta format, and the scripts will extract the necesarry information from these contigs in order to compile a protein database and run HAPiID. To run HAPiID over a custom database, the user has to precompile their own protein database first. We have created the script [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) that precompiles a protein database in one command. The script takes three command line arguments:
+```
+-i specifies the directory where the contigs (in fasta format) are located
+
+-t specifies the number of threads used by the script to run
+
+-e specifies the extension of the contigs (i.e. ".fasta", ".fa" etc.).
+```
+example to run script
+
+```
+makeProfilingDatabase_genomes.sh -i /dir/to/genomes/ -t n_threads -e .fasta
+```
+
+We start by predicting the protein coding genes using the script [runFGS_parallel.sh](scripts/runFGS_parallel.sh), which runs frag gene scan.
+
+After this step we extract all the ribosomal and elongation factor protein sequences from each genome/bin, by first scanning all the predicted genes from the previous step against a precompiled database containing profiles for [ribosomal and elongation factor proteins](data/ribP_elonF_pfam_db_refined_manually/), using HMMSCAN through the script [runHMMSCAN_parallel.sh](scripts/runHMMSCAN_parallel.sh). The list of elongation factor and ribosomal protein profiles can be found [here](data/ribP_elonF_profiles_refined_manually.txt).
+
+The final step is to de-duplicate these ribosomal and elongation factor genes using CD-hit at 100% sequence similarity and create a dictionary mapping between the protein sequence IDs to their bin IDs using the script [proteins2genomes.py](scripts/proteins2genomes.py).
+
+After compiling a custom protein database the users can search for peptides using the script [profileMPsample.sh](scripts/profileMPsample.sh).
+
+exampe to run script:
+```
+sh profileMPsample.sh -i /mgf/file -o /dir/to/output/mzid/fies/ -d /ribosomal and elongation factor/fasta/sequence/file -t number of cores -e /output/directory/to/store/database/files/ -p percentage_spectra_covered -x extension_of_prot_seqs -m memory_used
+```
+
+# Compiling protein database from set of proteomes
+
+We have included helper scripts that will allow the user to compile their own database starting from a list of protein sequences. The user has to provide their own predicted protein sequences in fasta format, and the scripts will extract the necesarry information from these contigs in order to compile a protein database and run HAPiID. To run HAPiID over a custom database, the user has to precompile their own protein database first. We have created the script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh) that precompiles a protein database in one command. The script takes three command line arguments:
+```
+-i specifies the directory where the protein sequences (in fasta format) are located
+
+-t specifies the number of threads used by the script to run
+
+-e specifies the extension of the contigs (i.e. ".fasta", ".faa" etc.). 
+```
+example to run script
+
+```
+makeProfilingDatabase_proteomes.sh -i /dir/to/genomes/ -t n_threads -e .fasta
+```
+The script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh) follows similar steps as [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) as described in the previous section, however assumes that the user has allready predicted protein sequences and thus skips the protein coding step using FragGeneScan.
 
 # Using HAPiID with the precompiled human gut database
 
