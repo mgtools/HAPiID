@@ -17,6 +17,8 @@ An overview of the pipeline is summarized in this figure:
 
 * [Using HAPiID with the precompiled human gut bacteria database please follow the steps here:](#using-hapiid-with-the-precompiled-human-gut-database)
 
+* [Testing the pipeline over protemics datasets:](#testing-hapiid-over-datasets)
+
 * [Prerequisite Programs needed to run the pipeline:](#prerequisite-programs-needed-to-run-the-pipeline)
 
 # Compiling protein database from set of genomes
@@ -113,6 +115,8 @@ The top N genomes are then extracted and their genomes expanded to create the fi
 
 A final round of spectral search is performed using [MSGFPlus.jar](MSGF+/MSGFPlus.jar) over the final (expanded) database. 
 Unique identified peptides reported by the script [get_uniquePeptides.py](scripts/get_uniquePeptides.py)
+
+# Testing HAPiID over datasets
 
 
 # Prerequisite Programs needed to run the pipeline
