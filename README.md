@@ -85,8 +85,12 @@ mgf files using MSGF+
    all the identified spectra during the profiling stage.
 
 -x the extension of the protein sequences used, (should be the same as the one specified as 
-the -e parameter for the script "makeProfilingDatabase_proteomes.sh",or should be set to
-".fasta.FGS.faa" if the script "makeProfilingDatabase_genomes.sh" were used for reference database construction).
+   the -e parameter for the script "makeProfilingDatabase_proteomes.sh",or should be set to
+   ".fasta.FGS.faa" if the script "makeProfilingDatabase_genomes.sh" were used for reference database construction)
+   (default value is set to 80).
+
+-m the ammount of memorry allocated for MS-GF+, in megabytes, i,e 15000 for 15GB of memory 
+   (default value is set to 32000)
 ```
 
 
