@@ -157,14 +157,16 @@ There are two files under the folder mgf_data/, HM403.mgf and HM403_toy.mgf, the
 
 To run the HAPiID pipeline over these datasets simply execute the following commands:
 ```
-sh profileMPsample.sh -i ../../mgf_data/HM403_toy.mgf -o ../../HAPiID_results/ -d ../data/ribP_elonF_MSGF_search/ribP_elonF_all_cdHit_100_proteinSeqs.fasta -t 5 -e ../../HAPiID_db/ -o 80 -x .faa
+sh profileMPsample.sh -i ../../mgf_data/HM403_toy.mgf -o ../../HAPiID_results/ -d ../data/ribP_elonF_MSGF_search/ribP_elonF_all_cdHit_100_proteinSeqs.fasta -t 5 -e ../../HAPiID_db/ -p 80 -x .faa
 ```
 or 
 ```
-sh profileMPsample.sh -i ../../mgf_data/HM403.mgf -o ../../HAPiID_results/ -d ../data/ribP_elonF_MSGF_search/ribP_elonF_all_cdHit_100_proteinSeqs.fasta -t 5 -e ../../HAPiID_db/ -o 80 -x .faa
+sh profileMPsample.sh -i ../../mgf_data/HM403.mgf -o ../../HAPiID_results/ -d ../data/ribP_elonF_MSGF_search/ribP_elonF_all_cdHit_100_proteinSeqs.fasta -t 5 -e ../../HAPiID_db/ -p 80 -x .faa
 ```
 
-these commands will output the results under a folder called HAPiID_results/ and will create the necesarry protein databases under the folder HAPiID_db. The final tab separated PSM identification results (FDR filtered) will be found under the folder HAPiID_results/, where each dataset will have it's own subfolder.
+these commands will output the results under a folder called HAPiID_results/ and will create the necesarry protein databases under the folder HAPiID_db. The final tab separated PSM identification results (FDR filtered) will be found under the folder HAPiID_results/sample_name_extended_db_search/ folder, where each dataset will have it's own subfolder.
+
+A plot showing the curve of the cumulative percentage of the spectra covered as a function of including the top n most abundant genomes during profiling stage is also generated under the folder HAPiID_results/sample_name_ribP_elonF folder. 
 
 
 # Prerequisite Programs needed to run the pipeline
