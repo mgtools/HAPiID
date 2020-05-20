@@ -134,6 +134,17 @@ Click [here](#setting-up-required-programs-and-packages) for details about insta
 
 ## Setting up required programs and packages
 
+If the pipeline has not been set up yet on your system, start by copying our github repository locally by issuing:
+```
+git clone https://github.com/mgtools/HAPiID.git
+```
+this will create a directory called HAPiID/ which has three sub-directories:
+
+* [data/](data/)
+* [MSGF+/](MSGF+/)
+* [scripts/](scripts/)
+
+
 #### Python3 and Anaconda3
 Installing python3 through anaconda suite, will install alot ofthe python packages used and will make it easy to install additional packages through conda. Anaconda3 package could be obtained through:
 ```
@@ -144,7 +155,7 @@ and then follow the installation instructions.
 
 ##### Installing biopython and ete3 python packages
 ```
-conda install -c anaconda biopytho
+conda install -c anaconda biopython
 
 conda install -c anaconda numpy
 
