@@ -148,7 +148,24 @@ sh makeProfilingDatabase_proteomes.sh -i ../data/proteomes/ -t 40 -e .faa
 
 This step may take from an hour up to a several hours depending on how many threads you allocate to the script (in the example above we are using 40 threads).
 
-Finally we can execute 
+Finally we can run the pipeline over metaproteomics datasets. To test the pipeline we have included to metaproteomics datastes (in .mgf format) available for download by issuing the following command to our servers:
+```
+wget https://omics.informatics.indiana.edu/mgf_data/
+```
+
+There are two files under the folder mgf_data/, HM403.mgf and HM403_toy.mgf, the second is a smaller version of the first samples (containing only the first 10/% of the total number of spectra recorded in the HM403.mgf file).
+
+To run the HAPiID pipeline over these datasets simply execute the following commands:
+```
+sh profileMPsample.sh -i ../../mgf_data/HM403_toy.mgf -o ../../HAPiID_results/ -d ../data/ribP_elonF_MSGF_search/ribP_elonF_all_cdHit_100_proteinSeqs.fasta -t 5 -e ../../HAPiID_db/ -o 80 -x .faa
+```
+or 
+```
+sh profileMPsample.sh -i ../../mgf_data/HM403.mgf -o ../../HAPiID_results/ -d ../data/ribP_elonF_MSGF_search/ribP_elonF_all_cdHit_100_proteinSeqs.fasta -t 5 -e ../../HAPiID_db/ -o 80 -x .faa
+```
+
+these commands will output the results under a folder called HAPiID_results/ and will create the necesarry protein databases under the folder HAPiID_db. The final tab separated PSM identification results (FDR filtered) will be found under the folder HAPiID_results/, where each dataset will have it's own subfolder.
+
 
 # Prerequisite Programs needed to run the pipeline
 
