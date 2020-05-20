@@ -137,8 +137,22 @@ subdirectory data/proteomes/. This folder later will be accesed heavily when the
 datasets.
 
 You can copy the proteomes folder under the [data/](data/) folder by issuing a wget command to our servers:
+first make a proteomes folder under the [data/](data/) folder
+
 ```
-wget https://omics.informatics.indiana.edu/proteomes/
+mkdir proteomes/
+```
+change your current directory to enter the proteomes folder
+```
+cd proteomes/
+```
+now copy all the proteomes files from our server to your local proteomes folder in one command:
+```
+ wget -r -np -nd https://omics.informatics.indiana.edu/genomes/proteomes/
+```
+This command will create some index files which could be easily removed by the command
+```
+rm -rf index.html*
 ```
 Now that we have all the information needed to compile a reference protein database we can do so by using the script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh) and issuing the following command:
 
@@ -149,8 +163,10 @@ sh makeProfilingDatabase_proteomes.sh -i ../data/proteomes/ -t 40 -e .faa
 This step may take from an hour up to a several hours depending on how many threads you allocate to the script (in the example above we are using 40 threads).
 
 Finally we can run the pipeline over metaproteomics datasets. To test the pipeline we have included to metaproteomics datastes (in .mgf format) available for download by issuing the following command to our servers:
+
+
 ```
-wget https://omics.informatics.indiana.edu/mgf_data/
+wget -r -np -nd https://omics.informatics.indiana.edu/genomes/mgf_data/
 ```
 
 There are two files under the folder mgf_data/, HM403.mgf and HM403_toy.mgf, the second is a smaller version of the first samples (containing only the first 10/% of the total number of spectra recorded in the HM403.mgf file).
