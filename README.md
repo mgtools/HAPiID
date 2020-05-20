@@ -197,6 +197,7 @@ sh profileMPsample.sh -i ../../mgf_data/HM403.mgf -o ../../HAPiID_results/ -d ..
     * biopython
     * numpy
     * pandas
+    * plotly
 * Frag Gene Scan (FGS)
 * HMMER3
 
@@ -221,6 +222,10 @@ conda install -c anaconda biopython
 conda install -c anaconda numpy
 
 conda install pandas
+
+conda install -c plotly plotly
+
+conda install -c plotly plotly-orca==1.2.1 psutil requests
 ```
 
 
