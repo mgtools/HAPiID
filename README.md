@@ -128,7 +128,7 @@ this will create a directory called HAPiID/ which has three sub-directories:
 * [MSGF+/](MSGF+/)
 * [scripts/](scripts/)
 
-## Using HAPiID with our provided reference protei database
+## Using HAPiID with our provided reference protein database (or user provided protein sequences)
 
 If the user wishes to use the HAPiID pipeline with our provided protein database (from 3,357 gut microbial genomes), 
 proceed by first downloading these proteomes under the [data/](data/) folder. It is important that these proteomes
@@ -167,6 +167,27 @@ sh profileMPsample.sh -i ../../mgf_data/HM403.mgf -o ../../HAPiID_results/ -d ..
 these commands will output the results under a folder called HAPiID_results/ and will create the necesarry protein databases under the folder HAPiID_db. The final tab separated PSM identification results (FDR filtered) will be found under the folder HAPiID_results/sample_name_extended_db_search/ folder, where each dataset will have it's own subfolder.
 
 A plot showing the curve of the cumulative percentage of the spectra covered as a function of including the top n most abundant genomes during profiling stage is also generated under the folder HAPiID_results/sample_name_ribP_elonF folder. 
+
+## Using HAPiID with user provided contigs
+
+We have included scripts also allowing the user to use the HAPiID pipeline and start with a set of genomes/contigs instead of protein sequences. After storing the user genomes somewhere locally the user can compile a protein database by using the script [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) and issuing the following command:
+
+```
+sh makeProfilingDatabase_genomes.sh -i ../dir/to/genomes/folder/ -t 40 -e .fasta
+```
+
+This step may take from an hour up to a several hours depending on how many threads you allocate to the script (in the example above we are using 40 threads). 
+
+After this step the user can run our pipeline in a similar manner as described in the previous section:
+
+```
+sh profileMPsample.sh -i ../../mgf_data/HM403_toy.mgf -o ../../HAPiID_results/ -d ../data/ribP_elonF_MSGF_search/ribP_elonF_all_cdHit_100_proteinSeqs.fasta -t 5 -e ../../HAPiID_db/ -p 80 -x .faa
+```
+or 
+```
+sh profileMPsample.sh -i ../../mgf_data/HM403.mgf -o ../../HAPiID_results/ -d ../data/ribP_elonF_MSGF_search/ribP_elonF_all_cdHit_100_proteinSeqs.fasta -t 5 -e ../../HAPiID_db/ -p 80 -x .faa
+```
+
 
 
 # Prerequisite Programs needed to run the pipeline
