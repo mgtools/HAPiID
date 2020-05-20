@@ -91,6 +91,6 @@ else:
                           'y' : 0.96, 'x' : 0.02}
                  ),                  
 
-    out_dir = out_f.rsplit('/'. 1)[0]+'/'
+    out_dir = out_f.rsplit('/', 1)[0]+'/'
     out_fname = out_f.rsplit('/', 1)[-1].replace('.GenomeCoveringAllHEGspectra.txt', '')
     fig.write_image(out_dir + out_fname + '_cumulativePercentSpecsCovered.png')
