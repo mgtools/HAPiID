@@ -72,3 +72,25 @@ else:
     covered_spectra_df = pd.read_csv(out_f, sep = '\t')
     covered_spectra_df['nSpectra_%'] = [(item*100)/list(covered_spectra_df['nSpectraCovered'])[-1] for item in covered_spectra_df['nSpectraCovered']]
     covered_spectra_df.to_csv(out_f, sep = '\t', index = False)
+    import plotly.express as px
+    import plotly.graph_objects as go
+
+    # Create traces
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=covered_spectra_df['genome'], y=covered_spectra_df['nSpectra_%'],
+                    mode='lines+markers'
+                             ))
+
+    fig.update_layout(
+                  yaxis = dict(range = [0, 100]),
+                  width=len(covered_spectra_df)*5,
+                  xaxis_title='top N genomes',
+                   yaxis_title='percentage of cumulative spectra covered',
+                  height=800,
+                  title = {'text':'Cumulative percentage of spectra covered by genomes during profiling phase <br> as a function of the first N genomes(greedy approach) )',
+                          'y' : 0.96, 'x' : 0.02}
+                 ),                  
+
+    out_dir = out_f.rsplit('/'. 1)[0]+'/'
+    out_fname = out_f.rsplit('/', 1)[-1].replace('.GenomeCoveringAllHEGspectra.txt', '')
+    fig.write_image(out_dir + out_fname + '_cumulativePercentSpecsCovered.png')
