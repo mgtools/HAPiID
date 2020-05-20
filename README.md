@@ -118,6 +118,29 @@ Unique identified peptides reported by the script [get_uniquePeptides.py](script
 
 # Setting up and testing hapiid over datasets
 
+If the pipeline has not been set up yet on your system, start by copying our github repository locally by issuing:
+```
+git clone https://github.com/mgtools/HAPiID.git
+```
+this will create a directory called HAPiID/ which has three sub-directories:
+
+* [data/](data/)
+* [MSGF+/](MSGF+/)
+* [scripts/](scripts/)
+
+## Using HAPiID with our provided reference protei database
+
+If the user wishes to use the HAPiID pipeline with our provided protein database (from 3,357 gut microbial genomes), 
+proceed by first downloading these proteomes under the [data/](data/) folder. It is important that these proteomes
+are copied under the [data/](data/) folder and the name of the folder is not altered, i.e. you will end up with a 
+subdirectory data/proteomes/. This folder later will be accesed heavily when the pipeline is run over metaproteomics 
+datasets.
+
+You can copy the proteomes folder under the [data/](data/) folder by issuing a wget command to our servers:
+```
+wget https://omics.informatics.indiana.edu/proteomes/
+```
+
 
 # Prerequisite Programs needed to run the pipeline
 
@@ -133,16 +156,6 @@ Unique identified peptides reported by the script [get_uniquePeptides.py](script
 Click [here](#setting-up-required-programs-and-packages) for details about installing/setting up prerequisites.
 
 ## Setting up required programs and packages
-
-If the pipeline has not been set up yet on your system, start by copying our github repository locally by issuing:
-```
-git clone https://github.com/mgtools/HAPiID.git
-```
-this will create a directory called HAPiID/ which has three sub-directories:
-
-* [data/](data/)
-* [MSGF+/](MSGF+/)
-* [scripts/](scripts/)
 
 
 #### Python3 and Anaconda3
