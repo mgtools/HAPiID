@@ -63,7 +63,7 @@ We have included helper scripts that will allow the user to compile their own da
 example to run script
 
 ```
-makeProfilingDatabase_proteomes.sh -i /dir/to/genomes/ -t n_threads -e .fasta
+makeProfilingDatabase_proteomes.sh -i /dir/to/proteomes/ -t n_threads -e .faa
 ```
 The script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh) follows similar steps as [makeProfilingDatabase_genomes.sh](scripts/makeProfilingDatabase_genomes.sh) as described in the previous section, however assumes that the user has allready predicted protein sequences and thus skips the protein coding step using FragGeneScan.
 
@@ -140,7 +140,15 @@ You can copy the proteomes folder under the [data/](data/) folder by issuing a w
 ```
 wget https://omics.informatics.indiana.edu/proteomes/
 ```
+Now that we have all the information needed to compile a reference protein database we can do so by using the script [makeProfilingDatabase_proteomes.sh](scripts/makeProfilingDatabase_proteomes.sh) and issuing the following command:
 
+```
+sh makeProfilingDatabase_proteomes.sh -i ../data/proteomes/ -t 40 -e .faa
+```
+
+This step may take from an hour up to a several hours depending on how many threads you allocate to the script (in the example above we are using 40 threads).
+
+Finally we can execute 
 
 # Prerequisite Programs needed to run the pipeline
 
